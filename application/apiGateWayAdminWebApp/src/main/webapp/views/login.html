@@ -1,0 +1,28 @@
+<form name="loginForm" ng-submit="submitForm()" novalidate>
+
+    <!-- userName -->
+    <div ng-class="{ 'has-error' : loginForm.userName.$invalid && !loginForm.userName.$pristine }">
+        <label>UserName:</label>
+        <input type="text" name="userName" class="form-control" ng-model="admin.userName" ng-minlength="3" ng-maxlength="8" required>
+        <p ng-show="loginForm.userName.$invalid && !loginForm.userName.$pristine" class="help-block">userName is mandatory and size should be between 3 & 8</p>
+
+    </div>
+    <!-- password -->
+    <div ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+        <label>Password:</label>
+        <input type="password" name="password" class="form-control" ng-model="admin.password" ng-minlength="4" ng-maxlength="10" required>
+        <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Password is mandatory and size should be between 4 & 10</p>
+
+    </div>
+
+    <!-- password -->
+    <div ng-class="{ 'has-error' : loginForm.env.$invalid && !loginForm.env.$pristine }">
+        <label>Environment:</label>
+        <input type="radio" name="env" ng-model="admin.env" value="ref"> REF <input type="radio" ng-model="admin.env" value="live">LIVE
+        <p ng-show="loginForm.env.$invalid && !loginForm.env.$pristine" class="help-block">At least one radio button should be checked</p>
+    </div>
+
+    <button type="reset" class="btn-primary" value="Reset">Reset</button>
+    <button type="submit" class="btn-primary" ng-disabled="loginForm.$invalid">Submit</button>
+
+</form>

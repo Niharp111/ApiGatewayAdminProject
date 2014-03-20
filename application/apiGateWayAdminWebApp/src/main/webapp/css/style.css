@@ -1,0 +1,23 @@
+/*-------------------------
+	The menu
+--------------------------*/
+
+
+
+
+
+
+div.menu {
+    width: 300px;
+    padding: 0px 10px;
+    margin :0px;
+    float : left;
+}
+
+div.views{
+	width: 900px;
+	margin :5px;
+	float : left;
+	 
+   
+}

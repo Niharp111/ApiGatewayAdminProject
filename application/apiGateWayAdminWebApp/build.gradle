@@ -1,0 +1,16 @@
+apply plugin: 'war'
+
+
+dependencies {
+    compile project(':modules:apigateway-proxy-rest')
+
+    compile libraries.'jersey-core'
+    compile libraries.'sl4j-log4j'
+    //for jersy2 spring integration
+    compile libraries.'jersey-spring3'
+    //for json media
+    compile libraries.'jersey-media'
+    compile libraries.'spring-web'
+    compile libraries.'log4j'
+}
+

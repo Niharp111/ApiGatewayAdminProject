@@ -1,0 +1,66 @@
+apply plugin: 'java'
+
+subprojects {
+    apply plugin: 'java'
+    group = 'com.cts.o2'
+    version = '1.0'
+    sourceCompatibility = 1.7
+
+    repositories {
+        mavenCentral()
+    }
+
+    test{
+        beforeTest { descriptor ->
+            logger.lifecycle("Running test: " + descriptor)
+        }
+    }
+
+
+}
+
+project.ext {
+    springGroupId='org.springframework'
+    jerseyGroupId='org.glassfish.jersey.containers'
+    springVersion='4.0.0.RELEASE'
+    springDataMongoVersion='1.4.0.RELEASE'
+    junitVersion='4.1'
+    jerseyVersion='2.6'
+    log4jVersion='1.2.17'
+    servletVersion='2.5'
+    mockitoVersion='1.5.4'
+    mongoJavaVersion='2.11.4'
+}
+
+
+
+libraries = [
+        'spring-beans':[group:springGroupId,name:'spring-beans',version:springVersion],
+        'spring-context':[group:springGroupId,name:'spring-context',version:springVersion],
+        'spring-web':[group:springGroupId,name:'spring-web',version:springVersion],
+        'spring-data':[group:'org.springframework.data',name:'spring-data-mongodb',version:springDataMongoVersion],
+
+        'sl4j-log4j':[group:'org.slf4j',name:'slf4j-log4j12',version: '1.7.6'],
+        'mongo-java-driver':[group:'org.mongodb',name:'mongo-java-driver',version: mongoJavaVersion],
+        'commons-codec':[group:'commons-codec',name:'commons-codec',version: '1.2'],
+
+        'joda-time':[group:'joda-time',name:'joda-time',version:'2.3'],
+        'jersey-core':[group: 'org.glassfish.jersey.containers', name:'jersey-container-servlet-core',version: jerseyVersion],
+        'jersey-test':[group:'org.glassfish.jersey.test-framework.providers',name:'jersey-test-framework-provider-grizzly2',version:jerseyVersion],
+        'jersey-container':[ group: 'org.glassfish.jersey.containers', name:'jersey-container-grizzly2-http',version: jerseyVersion],
+        'jersey-media':[ group: 'org.glassfish.jersey.media',name:'jersey-media-json-jackson',version: jerseyVersion],
+        'jersey-spring3':[group: 'org.glassfish.jersey.ext', name:'jersey-spring3',version: jerseyVersion],
+        'jersey-client':[group: 'org.glassfish.jersey.core',name:'jersey-client',version: jerseyVersion],
+
+        'javax.ws.rs':[group: 'javax.ws.rs', name: 'javax.ws.rs-api',version: '2.0'],
+        'log4j':[group: 'log4j', name: 'log4j',version: log4jVersion],
+        'servlet-api':[group:'javax.servlet',name:'servlet-api',version:servletVersion],
+
+        'junit':[group: 'junit', name: 'junit', version: junitVersion],
+        'mockito-api':[group:'org.powermock',name:'powermock-api-mockito',version:mockitoVersion],
+        'mockito-module':[group:'org.powermock',name:'powermock-module-junit4',version:mockitoVersion]
+
+]
+
+
+
